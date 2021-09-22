@@ -12,7 +12,7 @@ public class Reserva {
     private Long codReserva;
 
     private String nombreCompleto;
-    private int celular;
+    private String celular;
     private int personas;
     private String documento;
     private Date fecha;
@@ -27,11 +27,11 @@ public class Reserva {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public int getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
