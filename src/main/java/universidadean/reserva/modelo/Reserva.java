@@ -1,7 +1,6 @@
 package universidadean.reserva.modelo;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.*;
 
 @Entity
@@ -9,14 +8,15 @@ import java.util.*;
 public class Reserva {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long codReserva;
+
     private String nombreCompleto;
     private int celular;
     private int personas;
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long codReserva;
     private String documento;
     private Date fecha;
-    public static int  aforo = 20;
+    public  static int  aforo = 20;
 
 
     public String getNombreCompleto() {
