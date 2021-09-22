@@ -7,14 +7,17 @@ import java.util.*;
 @Entity
 @Table(name = "reservas")
 public class Reserva {
-    @Id
 
+    @Id
     private String nombreCompleto;
     private int celular;
     private int personas;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long codReserva;
     private String documento;
     private Date fecha;
-    private Time hora;
+    public static int  aforo = 20;
+
 
     public String getNombreCompleto() {
         return nombreCompleto;
@@ -40,6 +43,14 @@ public class Reserva {
         this.personas = personas;
     }
 
+    public Long getCodReserva() {
+        return codReserva;
+    }
+
+    public void setCodReserva(Long codReserva) {
+        this.codReserva = codReserva;
+    }
+
     public String getDocumento() {
         return documento;
     }
@@ -56,11 +67,4 @@ public class Reserva {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
-        return hora;
-    }
-
-    public void setHora(Time hora) {
-        this.hora = hora;
-    }
 }
