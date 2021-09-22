@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservas</title>
+</head>
+<body>
+<h1>Reservas</h1>
+<form>
+    Nombre: <input type="text" id="usuario"><br>
+    Celular: <input type="number" id="saldo"><br>
+    <button onclick="guardarCuenta()">Guardar</button>
+</form>
+
+<script lang="javascript">
+    async function guardarCuenta() {
+        let datos = { };
+        datos.usuario = document.getElementById("usuario").value;
+        datos.saldo = document.getElementById("saldo").value;
+        const resultado = await fetch('/cuenta', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(datos)
+        }).then(info => console.log(info));
+        alert("La cuenta se creo con éxito!")
+    }
+</script>
+
+</body>
+</html>
