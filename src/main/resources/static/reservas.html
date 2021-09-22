@@ -7,17 +7,23 @@
 <body>
 <h1>Reservas</h1>
 <form>
-    Nombre: <input type="text" id="usuario"><br>
-    Celular: <input type="number" id="saldo"><br>
-    <button onclick="guardarCuenta()">Guardar</button>
+    Nombre: <input type="text" id="nombreCompleto"><br>
+    Celular: <input type="number" id="celular"><br>
+    Numero de personas: <input type="number" id="personas"><br>
+    Numero de documento: <input type="number" id="documento"><br>
+    Fecha: <input type="date" id="fecha"><br>
+    <button onclick="guardarReserva()">Guardar</button>
 </form>
 
 <script lang="javascript">
-    async function guardarCuenta() {
+    async function guardarReserva() {
         let datos = { };
-        datos.usuario = document.getElementById("usuario").value;
-        datos.saldo = document.getElementById("saldo").value;
-        const resultado = await fetch('/cuenta', {
+        datos.nombreCompleto = document.getElementById("nombreCompleto").value;
+        datos.celular = document.getElementById("celular").value;
+        datos.personas = document.getElementById("personas").value;
+        datos.documento = document.getElementById("documento").value;
+        datos.fecha = document.getElementById("fecha").value;
+        const resultado = await fetch('/reserva', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
