@@ -1,0 +1,36 @@
+h1{
+ font-size: 40px;
+ font-family: 'Courier New', Courier, monospace;
+ font-weight: bold;
+ text-align: center;
+ background-color: #F9E79F;
+ border: 5px solid #212121;
+}
+form{
+ border: 5px solid #212121;
+ background-color: #AED6F1;
+}
+button{
+ cursor: pointer;
+}
+ul2 li2{
+  display: inline-block;
+  align-items: baseline;
+  list-style: none;
+  padding: 6px 20px;
+  front-weight: 500;
+  front-size: 1.7 rem;
+  transition: all 0.3s ease 0s;
+}
+ul2 li2:hoover{
+  border-radius: 10px;
+  background-color: #212121;
+}
+
+
+
+
+
+
+
+
