@@ -19,9 +19,17 @@ public class ReservaServicio {
         return nuevaReserva.getCodReserva();
     }
 
-    // Retorna una cuenta con el numero dado
+    // Retorna una reserva con el numero dado
     public Optional<Reserva> obtenerReserva(Long codReserva) {
         return repositorio.findById(codReserva);
+    }
+
+
+    // Elimina una reserva con el número dado
+    public Long eliminarReserva(Reserva r) {
+        repositorio.delete(r);
+        return r.getCodReserva();
+
     }
 
 }

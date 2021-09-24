@@ -18,7 +18,6 @@ public class Reserva {
     private Date fecha;
     public  static int  aforo = 20;
 
-
     public String getNombreCompleto() {
         return nombreCompleto;
     }

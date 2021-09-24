@@ -26,4 +26,12 @@ public class ReservaControlador {
         return servicio.obtenerReserva(codReserva);
     }
 
+    @PostMapping("/eliminar-reserva")
+    public ResponseEntity<String> eliminarReserva(@RequestBody Reserva reserva) {
+        Long codReserva = servicio.eliminarReserva(reserva);
+        return new ResponseEntity<>("La reserva se elimino exitosamente " + codReserva,
+                HttpStatus.CREATED);
+    }
+
+
 }
