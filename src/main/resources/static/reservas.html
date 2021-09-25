@@ -40,12 +40,50 @@
     Código de reserva: <input type="number" id="codReserva"><br>
     <button onclick="obtenerReserva()">Consultar</button><br>
     <br>
-    Nombre: <output type="text" id="nombreCompleto2"><br>
-    Celular: <output type="number" id="celular2"><br>
-    Numero de personas: <output type="number" id="personas2"><br>
-    Numero de documento: <output type="number" id="documento2"><br>
-    Fecha: <output type="datetime-local" id="fecha2"><br>
+    Nombre: <p id="nombre-reserva"></p>
 </form>
+<script lang="javascript">
+
+async function obtenerReserva()
+{
+    const resultado = await fetch(`/reserva/${document.getElementById(`codReserva`).value}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            }
+        }
+    const reserva = resultado.json();
+    alert(reserva);
+
+}
+
+</script>
+
+<h1>Eliminar reserva</h1>
+<form>
+    Código de reserva: <input type="number" id="codReserva2"><br>
+    <button onclick="eliminarReserva()">Consultar</button><br>
+    <br>
+    Nombre: <p id="nombre-reserva3"></p>
+</form>
+<script lang="javascript">
+    async function eliminarReserva() {
+        let datos = { };
+        datos.codReserva = document.getElementById("codReserva2").value;
+        const resultado = await fetch('/eliminar-reserva', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(datos)
+        }).then(info => console.log(info));
+        alert("La reserva se elimino con éxito!")
+    }
+</script>
+
+
 
 <footer>
     <ul>
@@ -54,25 +92,6 @@
 </footer>
 
 
-<script lang="javascript">
-    async function obtenerReserva(document.getElementById("codReserva").value) {
-        let datos = {  };
-        datos.nombreCompleto = document.setElementById("nombreCompleto2").value;
-        datos.codReserva = document.setElementById("codReserva2").value;
-        datos.celular = document.setElementById("celular2").value;
-        datos.personas = document.setElementById("personas2").value;
-        datos.documento = document.setElementById("documento2").value;
-        datos.fecha = document.setElementById("fecha2").value;
-        const resultado = await fetch('/reserva', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(datos)
-        }).then(info => console.log(info));
-        alert("La cuenta se creo con éxito!")
-    }
-</script>
+
 </body>
 </html>
